@@ -80,7 +80,7 @@ class ProfileHeader extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     color: Theme.of(context).colorScheme.primary,
                     fontWeight: FontWeight.w500,
-                  ),
+                  ), 
                   textAlign: TextAlign.center,
                 ),
               ],
