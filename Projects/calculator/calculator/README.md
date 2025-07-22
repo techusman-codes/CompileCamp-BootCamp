@@ -12,10 +12,6 @@ A simple and elegant calculator built with Flutter. This app performs basic arit
 - Dark/Light theme-ready (optional enhancement)  
 - Built with reusable widgets
 
-## 📱 Screenshots
-
-Add your screenshot to the `assets/` folder and update the image path above.
-
 ## 🛠️ Getting Started
 
 To run this project locally:
