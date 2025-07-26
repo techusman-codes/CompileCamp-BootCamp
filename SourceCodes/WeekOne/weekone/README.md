@@ -1,16 +1,62 @@
-# weekone
+Welcome to Flutter! 🚀
 
-A new Flutter project.
+ Flutter Architectue Overview
 
-## Getting Started
+ Flutter is Google's UI toolkit for building beautiful, natively compiled applications for mobile, web, and desktop from a single codebase. This lesson will give you a solid foundation in Flutter's architecture.
 
-This project is a starting point for a Flutter application.
+ What Makes Flutter Special?
 
-A few resources to get you started if this is your first Flutter project:
+ 1, Reactive Programing
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+ Flutter follows reactive programimg paradigm where the UI automatically updates when the application state chnages. this means:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+     1- No manual DOM Manipulation 
+     2- Predictable UI Updates
+     3- Less buoilerplates code
+     4- Better performance
+
+2- Widget Based Architecture
+
+3- The widget Tree
+  -Flutter apps are built as a tree of widget below is the example
+
+  MaterialApp
+├── Scaffold
+    ├── AppBar
+    │   └── Text("My App")
+    └── Body
+        ├── Column
+        │   ├── Text("Welcome")
+        │   └── ElevatedButton("Click Me")
+        └── FloatingActionButton
+
+How Flutter Renders UI
+
+the three Trees
+  1- Widget Tree: Your code structure
+  2- Element Tree: Manages the lifecycle
+  3- Render Tree: Handles layout and painting
+
+  // Widget Tree (what you write)
+Container(
+  child: Text("Hello"),
+)
+
+// Flutter creates Element and RenderObject trees automatically
+
+
+// The Build Process
+ 1- Build: Widgets described the UI
+ 2- Layout: Calculate size and position
+ 3- Paint: Draw pixels on Screen
+
+
+// key concepts to remember 
+
+   Hot Relaod
+this makes chnages and see them instantly without losing app state:
+
+// Stateless and Statefull widgets
+
+  - Sateless: Immutable, like a function
+  - Stateful: can change over time, has internal state.
