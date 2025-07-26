@@ -12,13 +12,13 @@ class EnhancedCalculator extends StatefulWidget {
 class _EnhancedCalculatorState extends State<EnhancedCalculator> {
   CalculatorState _state = const CalculatorState();
   late FocusNode _focusNode;
-  
+
   @override
   void initState() {
     super.initState();
     _focusNode = FocusNode();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,19 +33,19 @@ class _EnhancedCalculatorState extends State<EnhancedCalculator> {
       ),
     );
   }
-  
+
   KeyEventResult _handleKeyEvent(FocusNode node, RawKeyEvent event) {
     if (event is RawKeyDownEvent) {
       final key = event.logicalKey;
-      
+
       // Number keys
-      if (key.keyId >= LogicalKeyboardKey.digit0.keyId && 
+      if (key.keyId >= LogicalKeyboardKey.digit0.keyId &&
           key.keyId <= LogicalKeyboardKey.digit9.keyId) {
         final digit = (key.keyId - LogicalKeyboardKey.digit0.keyId).toString();
         _handleButtonPress(digit);
         return KeyEventResult.handled;
       }
-      
+
       // Operation keys
       switch (key.keyLabel) {
         case "+":
@@ -75,23 +75,23 @@ class _EnhancedCalculatorState extends State<EnhancedCalculator> {
           return KeyEventResult.handled;
       }
     }
-    
+
     return KeyEventResult.ignored;
   }
-  
+
   void _handleButtonPress(String value) {
     HapticFeedback.lightImpact();
     setState(() {
       _state = CalculatorLogic.processInput(_state, value);
     });
   }
-  
+
   Widget _buildCalculatorUI() {
     // Implementation similar to previous calculator
     // but with enhanced styling and animations
     return Container(); // Placeholder
   }
-  
+
   @override
   void dispose() {
     _focusNode.dispose();
