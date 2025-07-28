@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
       /* Text(
   //"Welcome to Flutter Bootcamp!",
   //style: TextStyle(
+  
     fontSize: 24,
     fontWeight: FontWeight.bold,
     color: Colors.blue,
