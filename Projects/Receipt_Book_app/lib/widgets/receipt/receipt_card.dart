@@ -1,13 +1,14 @@
-// widgets/recipe/recipe_card.dart
 import 'package:flutter/material.dart';
 import 'package:receipt_app/models/reciept.dart';
+ // Adjust path based on your project
+// You may need to import other dependencies like: 'package:flutter_rating_bar/flutter_rating_bar.dart'
 
 class ResponsiveRecipeCard extends StatelessWidget {
   final Recipe recipe;
   final VoidCallback? onTap;
   final VoidCallback? onFavorite;
   final bool isFavorite;
-  
+
   const ResponsiveRecipeCard({
     Key? key,
     required this.recipe,
@@ -15,7 +16,7 @@ class ResponsiveRecipeCard extends StatelessWidget {
     this.onFavorite,
     this.isFavorite = false,
   }) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -28,7 +29,7 @@ class ResponsiveRecipeCard extends StatelessWidget {
       },
     );
   }
-  
+
   Widget _buildWideCard(BuildContext context) {
     return Card(
       elevation: 4,
@@ -49,7 +50,7 @@ class ResponsiveRecipeCard extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget _buildCompactCard(BuildContext context) {
     return Card(
       elevation: 2,
@@ -70,7 +71,7 @@ class ResponsiveRecipeCard extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget _buildImage(BuildContext context, {required double height}) {
     return Stack(
       children: [
@@ -97,7 +98,7 @@ class ResponsiveRecipeCard extends StatelessWidget {
       ],
     );
   }
-  
+
   Widget _buildContent(BuildContext context, {bool isCompact = false}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -105,8 +106,8 @@ class ResponsiveRecipeCard extends StatelessWidget {
         Text(
           recipe.title,
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
+                fontWeight: FontWeight.bold,
+              ),
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
         ),
@@ -115,8 +116,8 @@ class ResponsiveRecipeCard extends StatelessWidget {
           Text(
             recipe.description,
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              color: Colors.grey[600],
-            ),
+                  color: Colors.grey[600],
+                ),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
           ),
@@ -142,7 +143,7 @@ class ResponsiveRecipeCard extends StatelessWidget {
       ],
     );
   }
-  
+
   Widget _buildFavoriteButton() {
     return Container(
       decoration: BoxDecoration(
@@ -159,16 +160,23 @@ class ResponsiveRecipeCard extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget _buildDifficultyBadge() {
     Color badgeColor;
     switch (recipe.difficulty.toLowerCase()) {
-      case 'easy': badgeColor = Colors.green; break;
-      case 'medium': badgeColor = Colors.orange; break;
-      case 'hard': badgeColor = Colors.red; break;
-      default: badgeColor = Colors.grey;
+      case 'easy':
+        badgeColor = Colors.green;
+        break;
+      case 'medium':
+        badgeColor = Colors.orange;
+        break;
+      case 'hard':
+        badgeColor = Colors.red;
+        break;
+      default:
+        badgeColor = Colors.grey;
     }
-    
+
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
@@ -185,7 +193,7 @@ class ResponsiveRecipeCard extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget _buildInfoChip({
     required IconData icon,
     required String label,
@@ -214,7 +222,7 @@ class ResponsiveRecipeCard extends StatelessWidget {
       ),
     );
   }
-  
+
   Widget _buildRating() {
     return Row(
       children: [

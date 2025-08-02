@@ -1,18 +1,27 @@
+import 'package:flutter/material.dart';
+
 class ResponsiveBreakpoints {
-  static const double mobile = 600;     // 0-599: Mobile
-  static const double tablet = 1200;    // 600-1199: Tablet
-  // 1200+: Desktop
+  static const double mobile = 600;
+  static const double tablet = 1200;
   
-  static bool isMobile(double width) => width < mobile;
-  static bool isTablet(double width) => width >= mobile && width < tablet;
-  static bool isDesktop(double width) => width >= tablet;
+  static bool isMobile(BuildContext context) => 
+      MediaQuery.sizeOf(context).width < mobile;
   
-  // Helper for getting columns based on width
-  static int getRecipeColumns(double width) {
-    if (width < 400) return 1;      // Small mobile
-    if (width < 600) return 2;      // Large mobile
-    if (width < 900) return 3;      // Small tablet
-    if (width < 1200) return 4;     // Large tablet
-    return 5;                       // Desktop
+  static bool isTablet(BuildContext context) => 
+      MediaQuery.sizeOf(context).width >= mobile && 
+      MediaQuery.sizeOf(context).width < tablet;
+  
+  static bool isDesktop(BuildContext context) => 
+      MediaQuery.sizeOf(context).width >= tablet;
+  
+  static int getColumns(BuildContext context, {
+    int mobileColumns = 1,
+    int tabletColumns = 2,
+    int desktopColumns = 3,
+  }) {
+    final width = MediaQuery.sizeOf(context).width;
+    if (width < mobile) return mobileColumns;
+    if (width < tablet) return tabletColumns;
+    return desktopColumns;
   }
 }

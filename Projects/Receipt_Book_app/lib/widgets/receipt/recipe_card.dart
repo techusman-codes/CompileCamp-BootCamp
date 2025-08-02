@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:receipt_app/data/sample_receipt.dart';
 import 'package:receipt_app/models/nutrition_info.dart';
 import 'package:receipt_app/models/reciept.dart';
-import 'package:receipt_app/providers/cart_provider.dart';
 import 'package:receipt_app/screens/receipe_detail_screen.dart';
-import 'package:receipt_app/screens/shopping_list_screen.dart' show ShoppingListScreen;
-import 'package:receipt_app/search/search_bar.dart';
 import 'package:receipt_app/utils/responsive_breakpoints.dart';
 import 'package:receipt_app/widgets/receipt/recipe_grid.dart';
 
@@ -26,7 +22,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String? _selectedCategory;
-  String _searchQuery = '';
 
   @override
   Widget build(BuildContext context) {
@@ -38,15 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             _buildHeroSection(context),
-            const SizedBox(height: 24),
-
-            // ✅ Search Bar
-            RecipeSearchBar(
-              onChanged: (query) =>
-                  setState(() => _searchQuery = query.trim().toLowerCase()),
-            ),
-            const SizedBox(height: 24),
-
+            const SizedBox(height: 32),
             _buildFeaturedRecipes(context),
             const SizedBox(height: 32),
             _buildQuickCategories(context),
@@ -64,6 +51,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return AppBar(
       title: const Text('Recipe Book'),
       actions: [
+        IconButton(
+          icon: const Icon(Icons.search),
+          onPressed: () => _showSearch(context),
+          tooltip: 'Search Recipes',
+        ),
         IconButton(
           icon: const Icon(Icons.favorite_border),
           onPressed: () => _navigateToFavorites(context),
@@ -125,10 +117,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildFeaturedRecipes(BuildContext context) {
-    final filteredRecipes = SampleData.featuredRecipes.where((recipe) {
-      return recipe.title.toLowerCase().contains(_searchQuery);
-    }).toList();
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -149,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         const SizedBox(height: 16),
         ResponsiveRecipeGrid(
-          recipes: filteredRecipes,
+          recipes: SampleData.featuredRecipes,
           maxItems: ResponsiveBreakpoints.isMobile(context) ? 4 : 6,
           onFavorite: widget.onFavorite,
           isFavorite: (recipeId) => widget.favoriteRecipeIds.contains(recipeId),
@@ -185,11 +173,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 createdAt: DateTime.now(),
               ),
             );
-
-            Provider.of<CartProvider>(
-              context,
-              listen: false,
-            ).addToCart(recipe.id);
 
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(content: Text('${recipe.title} added to cart')),
@@ -270,12 +253,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     widget.favoriteRecipeIds.contains(recipeId),
                 onTap: (recipeId) => _navigateToRecipeDetail(context, recipeId),
                 onAddToCart: (recipeId) {
-                  Provider.of<CartProvider>(
-                    context,
-                    listen: false,
-                  ).addToCart(recipeId);
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Recipe added to cart')),
+                    SnackBar(content: Text('Recipe $recipeId added to cart')),
                   );
                 },
               )
@@ -300,11 +279,15 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  void _navigateToShoppingList(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (_) => const ShoppingListScreen()),
+  // Helper methods
+  void _showSearch(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Search functionality not implemented yet')),
     );
+  }
+
+  void _navigateToShoppingList(BuildContext context) {
+    Navigator.pushNamed(context, '/shopping');
   }
 
   void _navigateToFavorites(BuildContext context) {

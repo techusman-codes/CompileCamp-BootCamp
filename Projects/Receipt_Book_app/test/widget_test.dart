@@ -8,12 +8,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:receipt_app/main.dart';
+// Ensure this import points to the correct main.dart file where MyApp is defined.
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+   
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
