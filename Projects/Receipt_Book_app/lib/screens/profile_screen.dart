@@ -24,13 +24,13 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 12),
                   Text(
-                    'Dest Nacho',
+                    'Usman Umar Garba',
                     style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
-                    'Home Chef',
+                    'Chief Uceee',
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ],
