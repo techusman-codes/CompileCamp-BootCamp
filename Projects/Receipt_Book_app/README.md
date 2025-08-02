@@ -7,7 +7,7 @@
 
 ## 📸 Preview
 
-![App Screenshot](assets/analogy_receipt_preview.png)  
+![App Screenshot](https://github.com/techusman-codes/CompileCamp-BootCamp/blob/180b07fbfcac4ee4b70e0f28a2d8a6c3a31bbe14/Projects/Receipt_Book_app/Screenshot%20From%202025-08-02%2022-10-22.png)  
 *Screenshots of receipt and booking screen will appear here once available.*
 
 ---
