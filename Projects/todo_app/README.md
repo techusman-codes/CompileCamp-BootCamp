@@ -30,7 +30,7 @@ While simple in functionality, the project emphasizes **clean architecture**, **
 
 ## 📸 Preview
 
-![App Screenshot]()  
+![App Screenshot](https://github.com/techusman-codes/CompileCamp-BootCamp/blob/2d4b3a15f8ddb018962cdbaeea652b6c14570b35/Projects/todo_app/Screenshot%20From%202025-08-11%2011-12-35.png)  
 
 
 The link of the live demo https://compilecamp-bootcamp-bphfype-usman-umar-garba.globeapp.dev/
