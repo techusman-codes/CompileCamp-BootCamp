@@ -30,7 +30,7 @@ While simple in functionality, the project emphasizes **clean architecture**, **
 
 ## 📸 Preview
 
-![App Screenshot](https://github.com/techusman-codes/CompileCamp-BootCamp/blob/180b07fbfcac4ee4b70e0f28a2d8a6c3a31bbe14/Projects/Receipt_Book_app/Screenshot%20From%202025-08-02%2022-10-22.png)  
+![App Screenshot]()  
 
 
 The link of the live demo https://compilecamp-bootcamp-bphfype-usman-umar-garba.globeapp.dev/
