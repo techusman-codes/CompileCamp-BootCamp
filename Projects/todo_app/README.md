@@ -28,6 +28,14 @@ While simple in functionality, the project emphasizes **clean architecture**, **
 
 ---
 
+## 📸 Preview
+
+![App Screenshot](https://github.com/techusman-codes/CompileCamp-BootCamp/blob/180b07fbfcac4ee4b70e0f28a2d8a6c3a31bbe14/Projects/Receipt_Book_app/Screenshot%20From%202025-08-02%2022-10-22.png)  
+
+
+The link of the live demo https://compilecamp-bootcamp-bphfype-usman-umar-garba.globeapp.dev/
+
+
 ## 🎯 Purpose of the Project
 
 The aim is **not** to create a production-level app but to **demonstrate mastery of Riverpod concepts**, such as:
@@ -110,9 +118,7 @@ lib/
 
 ---
 
-## 📸 Screenshots
 
-> *(https://github.com/techusman-codes/CompileCamp-BootCamp/blob/76f6955661780f810d972dfb58d6d3604162e18d/Projects/todo_app/Screenshot%20From%202025-08-11%2011-12-35.png)*
 
 ---
 
